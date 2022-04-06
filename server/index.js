@@ -24,17 +24,4 @@ app.post("/api/generateGame", (req, res) => {
 
 const generateSeed = require("./scripts/generateSeed");
 
-const generated_seed = generateSeed.generateSeed();
-
-const generateDungeon = require("./scripts/generateDungeon");
-
-const dungeon_number = 1;
-
-/* const generated_dungeon = generateDungeon.generateDungeon(
-  generated_seed,
-  dungeon_number
-); */
-
-//console.log(generated_dungeon);
-
 module.exports = app;
