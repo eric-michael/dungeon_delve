@@ -1,6 +1,11 @@
+const RNG = require("../models/RNG").RNG;
+
 const generateLevel = require("./generateLevel").generateLevel;
 
 function generateDungeon(seed, career_id, dungeon_number) {
+
+  const rng = new RNG(seed);
+  console.log(JSON.stringify(rng));
   const dungeon = [];
   const sets = [[1], [2], [3], [4]];
   let level_rank = 0;
