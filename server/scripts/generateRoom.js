@@ -1,8 +1,39 @@
 const room_types = require("../store/room_types").room_types;
+const RoomNode = require("../models/RoomNode").RoomNode;
 
-function generateRoom(seed, career_id, dungeon_number, level_rank, room_number, sets) {
-  const room_id =
-    dungeon_number.toString() + level_rank.toString() + room_number.toString();
+/* 
+  A room_id needs 6 characters
+  the first two are the dungeon_number
+  the second two are the level_rank
+  the last two are the room_number
+  e.g. '021109' == dungeon 2, level 11, room 9
+*/
+function makeRoomId(dungeon_number, level_rank, room_number) {
+  let x = [];
+  let room_id = "";
+  x.push(dungeon_number.toString());
+  x.push(level_rank.toString());
+  x.push(room_number.toString());
+
+  for (let i in x) {
+    if (x[i].length === 1) {
+      x[i] = "0" + x[i];
+    }
+    room_id += x[i];
+  }
+
+  return room_id;
+}
+
+function generateRoom(
+  seed,
+  career_id,
+  dungeon_number,
+  level_rank,
+  room_number,
+  sets
+) {
+  const room_id = makeRoomId(dungeon_number, level_rank, room_number);
   const modified_seed = seed + level_rank + room_id;
   const room = { id: room_id };
   Object.assign(room, { sets: sets });
