@@ -23,6 +23,11 @@ class RNG{
         const generator = sr(seed + 'monster');
         return generator();
     }
+
+    roomGen(room_id){
+        const generator = sr(this.seed + room_id);
+        return generator();
+    }
 }
 
 exports.RNG = RNG;
