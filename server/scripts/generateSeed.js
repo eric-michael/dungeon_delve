@@ -1,3 +1,7 @@
+/**
+ * Generate a seed with a certain signature, used to seed the RNG. Can be passed any string.
+ **/
+
 function generateSeed(seed) {
   const hash_seed = seed ? seed : Math.random().toString();
 
