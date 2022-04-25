@@ -1,5 +1,5 @@
 const generateDungeon = require("./generateDungeon").generateDungeon;
-const generateSeed = require("./generateSeed");
+const generateSeed = require("./generateSeed").generateSeed;
 
 /**
  * Entry point for generating the game. Uses the provided seed to randomly create the map.
@@ -8,7 +8,7 @@ const generateSeed = require("./generateSeed");
  * @returns the dungeon object
  */
 function generateGame(seed, career_id) {
-  const game_seed = seed ? seed : generateSeed.generateSeed();
+  const game_seed = seed ? seed : generateSeed();
 
   const dungeon_number = 1;
 
