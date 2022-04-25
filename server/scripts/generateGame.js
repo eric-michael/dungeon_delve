@@ -1,6 +1,12 @@
 const generateDungeon = require("./generateDungeon").generateDungeon;
 const generateSeed = require("./generateSeed");
 
+/**
+ * Entry point for generating the game. Uses the provided seed to randomly create the map.
+ * @param {string} seed the seed for the RNG object. Can be entered by player or randomly generated.
+ * @param {int} career_id selected player career
+ * @returns the dungeon object
+ */
 function generateGame(seed, career_id) {
   const game_seed = seed ? seed : generateSeed.generateSeed();
 
