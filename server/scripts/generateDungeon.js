@@ -1,7 +1,13 @@
 const RNG = require("../models/RNG").RNG;
-
 const generateLevel = require("./generateLevel").generateLevel;
 
+/**
+ * Generate a dungeon
+ * @param {string} seed 
+ * @param {int} career_id 
+ * @param {int} dungeon_number 
+ * @returns an object that represents a dungeon. It contains levels which contain rooms.
+ */
 function generateDungeon(seed, career_id, dungeon_number) {
 
   const rng = new RNG(seed);
