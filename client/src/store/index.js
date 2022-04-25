@@ -2,7 +2,7 @@ import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 const playerInitialState = {
   // string holding the player's location ID
-  location: '',
+  room_id: '',
   career_name: '',
   current_hp: 0,
   max_hp: 0,
@@ -34,8 +34,8 @@ const playerSlice = createSlice({
     setDeck(state, action) {
       state.deck = action.payload;
     },
-    setLocation(state, action) {
-      state.location = action.payload;
+    setRoomID(state, action) {
+      state.room_id = action.payload;
     },
   },
 });

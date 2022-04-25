@@ -17,15 +17,15 @@ function Game() {
 
   function enterRoomHandler(e) {
     console.log(e.target.value);
-    dispatch(playerActions.setLocation(e.target.value));
+    dispatch(playerActions.setRoomID(e.target.value));
   }
 
-  const location = useSelector((state) => state.player.location);
+  const room_id = useSelector((state) => state.player.room_id);
 
   return (
     <div>
       <TopBar />
-      {location && <Room location={location}/>}
+      {room_id && <Room room_id={room_id}/>}
       <Map enterRoomHandler={enterRoomHandler}/>
     </div>
   );

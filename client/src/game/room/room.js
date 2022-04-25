@@ -4,9 +4,35 @@
     It should replace the Map Component on the Game page
 */
 
-function Room(props){
-    const location = props.location;
-    return(<div>{location}</div>)
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
+function Room(props) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [room, setRoom] = useState({});
+
+  const game_seed = useSelector((state) => state.game.seed);
+
+  const room_id = props.room_id;
+
+  const post_data = {
+    seed: game_seed,
+    room_id: room_id,
+  };
+
+  useEffect(() => {
+    fetch("api/getRoom", {
+      method: "POST",
+      body: JSON.stringify(post_data),
+    }).then((res) => {
+      res.json().then((data) => {
+        setRoom(data);
+        setIsLoading(false);
+      });
+    });
+  }, []);
+
+  return <div>{room_id}</div>;
 }
 
 export default Room;
