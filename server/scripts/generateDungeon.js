@@ -15,10 +15,15 @@ function generateDungeon(seed, career_id, dungeon_number) {
   const dungeon = [];
   const sets = [[1], [2], [3], [4]];
   let level_rank = 0;
+  let prev_level_num_rooms = 4;
 
+  // 10 levels per dungeon.
   for (let i = 0; i < 10; i++) {
     level_rank = i + 1;
-    dungeon.push(generateLevel(seed, career_id, dungeon_number, level_rank, sets));
+    if(i > 0){
+      prev_level_num_rooms = dungeon[i-1].length;
+    }
+    dungeon.push(generateLevel(seed, career_id, dungeon_number, level_rank, sets, prev_level_num_rooms));
   }
   return dungeon;
 }
