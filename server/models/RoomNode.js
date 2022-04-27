@@ -20,7 +20,9 @@ class RoomNode {
   }
 
   addToSet(set){
-    this.set.push(set);
+    for(let x in set){
+      this.set.push(set[x]);
+    }
   }
 }
 
