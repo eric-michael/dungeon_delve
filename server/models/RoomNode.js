@@ -1,13 +1,14 @@
 /**
  * Node for a linked list
- *  There is no limit for the amount of parents at the moment so we'll keep it an arrray
+ *  There is no limit for the amount of parents at the moment so we'll keep it an array
  * */
 
 class RoomNode {
-  constructor(room_id, parent_ids = [], type_id = 0) {
+  constructor(room_id, parent_ids = [], type_id = 0, set = []) {
     this.room_id = room_id;
     this.parent_ids = parent_ids;
     this.type_id = type_id;
+    this.set = set;
   }
 
   setParentId(parent_id) {
@@ -16,6 +17,10 @@ class RoomNode {
 
   setTypeId(type_id) {
     this.type_id = type_id;
+  }
+
+  addToSet(set){
+    this.set.push(set);
   }
 }
 
