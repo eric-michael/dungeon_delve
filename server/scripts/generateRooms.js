@@ -1,7 +1,8 @@
 const RoomNode = require("../models/RoomNode").RoomNode;
 const shuffleArray = require("./helpers/shuffleArray").shuffleArray;
 const makeRoomId = require("./helpers/makeRoomId").makeRoomId;
-const randomNumberInRange = require("./helpers/randomNumberInRange").randomNumberInRange;
+const randomNumberInRange = require("./helpers/randomNumberInRange")
+  .randomNumberInRange;
 
 // A link represents a "hallway" between RoomNodes, connecting rooms from a lower floor to a higher floor.
 // Get a random value in the range of min_num_links and max_num_links.
@@ -66,9 +67,6 @@ function generateRooms(
     .fill(null)
     .map((x, i) => i);
   extra_links_children = shuffleArray(extra_links_children);
-  console.log("link array", link_array);
-  console.log("extra links parents", extra_links_parents);
-  console.log("extra links children", extra_links_children);
 
   let rooms = Array(num_rooms_this_level)
     .fill(null)
@@ -80,7 +78,6 @@ function generateRooms(
 
   /* Get number of links */
   let num_links = getNumLinks(num_rooms_prev_level, num_rooms_this_level);
-  console.log("number of links", num_links);
   /* End get number of links */
 
   num_links_extra_parents = num_links - num_rooms_prev_level;
