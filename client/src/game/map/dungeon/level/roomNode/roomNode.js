@@ -31,14 +31,15 @@ function buildStringFromSets(sets) {
 }
 
 function RoomNode(props) {
+  console.log(props);
   const enterRoomHandler = props.enterRoomHandler;
   // room_type maps to what kind of room it is; eg common battle, rest area, etc.
   //const room_type = props.room_data.type_id;
-  const room_id = props.room_data.id;
+  const room_id = props.room_data.room_id;
   // then name of the room that appears on the map screen
   const room_name = props.room_data.name;
   // which sets the room belongs to, array of ints.
-  const sets = props.room_data.sets;
+  const sets = props.room_data.set;
   const set_string = buildStringFromSets(sets);
   return (
     <div className={classes.inline}>

@@ -26,7 +26,7 @@ function Level(props) {
       {level_data.map((room) => {
         return (
           <RoomNode
-            key={room.id}
+            key={room.room_id}
             room_data={room}
             enterRoomHandler={enterRoomHandler}
           />

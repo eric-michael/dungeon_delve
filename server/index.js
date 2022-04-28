@@ -15,7 +15,15 @@ const generateGame = require("./scripts/generateGame").generateGame;
 const starting_career = require("./store/player/careerStart").career_starts;
 
 app.post("/api/generateGame", (req, res) => {
-    res.send({ message: "generate game route", dungeon: generateGame(req.body.seed, req.body.career_id), career: starting_career[req.body.career_id] });
+  res.send({
+    message: "generate game route",
+    dungeon: generateGame(req.body.seed, req.body.career_id),
+    career: starting_career[req.body.career_id],
   });
+});
+
+app.post("/api/getRoom", (req, res) =>{
+
+});
 
 module.exports = app;

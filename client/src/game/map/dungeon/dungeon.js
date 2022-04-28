@@ -18,6 +18,7 @@ import { useSelector } from "react-redux";
 
 function Dungeon(props) {
   const dungeon = useSelector((state) => state.dungeon.dungeon_map);
+  console.log(dungeon);
   const enterRoomHandler = props.enterRoomHandler;
   return (
     <div className={classes.container}>
