@@ -19,15 +19,13 @@ function getNumLinks(num_rooms_prev_level, num_rooms_this_level) {
 }
 
 function addSets(prev_level_rooms, cur_level_rooms){
-  console.log(prev_level_rooms);
-  console.log(cur_level_rooms);
-  for(var c in cur_level_rooms){
-    if(cur_level_rooms[c].parent_ids.indexOf(prev_level_rooms.room_id) > 0){
-      
+  for(var n in prev_level_rooms){
+    for(var c in cur_level_rooms){
+      // if the parent_ids[] value matches the current prev_level_room (parent) id, add the parent's set to the cur_level_room
+      if(cur_level_rooms[c].parent_ids.indexOf(prev_level_rooms[n].room_id) > -1){
+        cur_level_rooms[c].addToSet(prev_level_rooms[n].set);
+      }
     }
-  }
-  for(var x in prev_level_rooms.set){
-
   }
 }
 

@@ -27,7 +27,8 @@ class RoomNode {
 
   addToSet(set){
     for(let x in set){
-      this.set.push(set[x]);
+      if(this.set.indexOf(set[x]) == -1)
+        this.set.push(set[x]);
     }
   }
 }
