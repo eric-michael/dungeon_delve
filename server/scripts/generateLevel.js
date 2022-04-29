@@ -26,7 +26,6 @@ function generateLevel(
   let levelGenerated = [];
   //let room_number = 0;
   // start with 4 rooms on every dungeon
-  console.log(prev_level_rooms);
   let num_rooms = getNumRooms(prev_level_rooms.length);
   console.log("num rooms", num_rooms);
   switch (level_rank) {
@@ -128,7 +127,6 @@ function generateLevel(
     default:
       break;
   }
-  console.log('level', levelGenerated);
   return levelGenerated;
 }
 

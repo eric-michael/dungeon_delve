@@ -3,6 +3,7 @@ const shuffleArray = require("./helpers/shuffleArray").shuffleArray;
 const makeRoomId = require("./helpers/makeRoomId").makeRoomId;
 const randomNumberInRange = require("./helpers/randomNumberInRange")
   .randomNumberInRange;
+const room_types = require("../store/room_types").room_types;
 
 // A link represents a "hallway" between RoomNodes, connecting rooms from a lower floor to a higher floor.
 // Get a random value in the range of min_num_links and max_num_links.
@@ -15,6 +16,19 @@ function getNumLinks(num_rooms_prev_level, num_rooms_this_level) {
   const max_num_links_2 = num_rooms_prev_level * 2;
   const max_num_links = Math.min(max_num_links_1, max_num_links_2);
   return randomNumberInRange(min_num_links, max_num_links);
+}
+
+function addSets(prev_level_rooms, cur_level_rooms){
+  console.log(prev_level_rooms);
+  console.log(cur_level_rooms);
+  for(var c in cur_level_rooms){
+    if(cur_level_rooms[c].parent_ids.indexOf(prev_level_rooms.room_id) > 0){
+      
+    }
+  }
+  for(var x in prev_level_rooms.set){
+
+  }
 }
 
 /**
@@ -44,7 +58,10 @@ function generateRooms(
       .map((x, i) => {
         //return new RoomNode(room_code + (i + 1));
         room_id = makeRoomId(dungeon_number, level_rank, i + 1);
-        return new RoomNode(room_id);
+        var room = new RoomNode(room_id);
+        room.setTypeId(0);
+        room.addToSet([i + 1]);
+        return room;
       });
     return rooms;
   }
@@ -107,6 +124,7 @@ function generateRooms(
     }
     child_cursor++;
   }
+  addSets(previous_level_rooms, rooms);
   return rooms;
 }
 
