@@ -1,8 +1,8 @@
 const RoomNode = require("../models/RoomNode").RoomNode;
 const shuffleArray = require("./helpers/shuffleArray").shuffleArray;
 const makeRoomId = require("./helpers/makeRoomId").makeRoomId;
-const randomNumberInRange = require("./helpers/randomNumberInRange")
-  .randomNumberInRange;
+const randomNumberInRange =
+  require("./helpers/randomNumberInRange").randomNumberInRange;
 const room_types = require("../store/room_types").room_types;
 
 // A link represents a "hallway" between RoomNodes, connecting rooms from a lower floor to a higher floor.
@@ -18,11 +18,13 @@ function getNumLinks(num_rooms_prev_level, num_rooms_this_level) {
   return randomNumberInRange(min_num_links, max_num_links);
 }
 
-function addSets(prev_level_rooms, cur_level_rooms){
-  for(var n in prev_level_rooms){
-    for(var c in cur_level_rooms){
+function addSets(prev_level_rooms, cur_level_rooms) {
+  for (var n in prev_level_rooms) {
+    for (var c in cur_level_rooms) {
       // if the parent_ids[] value matches the current prev_level_room (parent) id, add the parent's set to the cur_level_room
-      if(cur_level_rooms[c].parent_ids.indexOf(prev_level_rooms[n].room_id) > -1){
+      if (
+        cur_level_rooms[c].parent_ids.indexOf(prev_level_rooms[n].room_id) > -1
+      ) {
         cur_level_rooms[c].addToSet(prev_level_rooms[n].set);
       }
     }
@@ -123,6 +125,55 @@ function generateRooms(
     child_cursor++;
   }
   addSets(previous_level_rooms, rooms);
+
+  /* Placeholder until I get a more randomized way to set room types */
+  // Assign typeIds to rooms
+  for (var x in rooms) {
+    console.log("level rank", level_rank);
+    switch (level_rank) {
+      case 2: {
+        rooms[x].setTypeId(0);
+        break;
+      }
+      case 3: {
+        rooms[x].setTypeId(1);
+        break;
+      }
+      case 4: {
+        rooms[x].setTypeId(0);
+        break;
+      }
+      case 5: {
+        rooms[x].setTypeId(1);
+        break;
+      }
+      case 6: {
+        rooms[x].setTypeId(3);
+        break;
+      }
+      case 7: {
+        rooms[x].setTypeId(2);
+        break;
+      }
+      case 8: {
+        rooms[x].setTypeId(0);
+        break;
+      }
+      case 9: {
+        rooms[x].setTypeId(1);
+        break;
+      }
+      case 10: {
+        rooms[x].setTypeId(4);
+        break;
+      }
+      default: {
+        break;
+      }
+    }
+  }
+
+  /* end placeholder */
   return rooms;
 }
 
