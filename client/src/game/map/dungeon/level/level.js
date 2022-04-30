@@ -22,7 +22,7 @@ function Level(props) {
   const enterRoomHandler = props.enterRoomHandler;
   const level_data = props.level_data;
   return (
-    <div className={classes.container}>
+    <div className={`${classes.container} ${classes.mb}`}>
       {level_data.map((room) => {
         return (
           <RoomNode
