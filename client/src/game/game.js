@@ -13,20 +13,22 @@ import { useSelector, useDispatch } from "react-redux";
 import { playerActions } from "../store/index";
 
 function Game() {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   function enterRoomHandler(e) {
     console.log(e.target.value);
     dispatch(playerActions.setRoomID(e.target.value));
   }
+  
+  // need a conditional to switch between map view and room view
 
   const room_id = useSelector((state) => state.player.room_id);
 
   return (
     <div>
       <TopBar />
-      {room_id && <Room room_id={room_id}/>}
-      <Map enterRoomHandler={enterRoomHandler}/>
+      {room_id && <Room room_id={room_id} />}
+      <Map enterRoomHandler={enterRoomHandler} />
     </div>
   );
 }
