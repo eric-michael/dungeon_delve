@@ -38,6 +38,8 @@ const playerSlice = createSlice({
     setRoomID(state, action) {
       state.room_id = action.payload;
     },
+    // describes whether the player is in a room or on the map.
+    // true == in room, false == on map
     setInRoom(state, action) {
       state.in_room = !state.in_room;
     },
