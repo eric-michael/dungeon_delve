@@ -32,7 +32,7 @@ function Room(props) {
     });
   }, []);
 
-  return <div>{room_id}</div>;
+  return <div><div>{room_id}</div><button onClick={props.leaveRoomHandler}>leave room</button></div>;
 }
 
 export default Room;
