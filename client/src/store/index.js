@@ -2,13 +2,14 @@ import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 const playerInitialState = {
   // string holding the player's location ID
-  room_id: '',
-  career_name: '',
+  room_id: "",
+  career_name: "",
   current_hp: 0,
   max_hp: 0,
   energy: 0,
   deck: [],
   equipment: {},
+  in_room: false,
 };
 
 const playerSlice = createSlice({
@@ -19,16 +20,16 @@ const playerSlice = createSlice({
       state.career_name = action.payload;
       console.log(state.career_name);
     },
-    setCurrentHP(state, action){
+    setCurrentHP(state, action) {
       state.current_hp = action.payload;
     },
-    setMaxHP(state, action){
+    setMaxHP(state, action) {
       state.max_hp = action.payload;
     },
-    setEnergy(state, action){
+    setEnergy(state, action) {
       state.energy = action.payload;
     },
-    setEquipment(state, action){
+    setEquipment(state, action) {
       state.equipment = action.payload;
     },
     setDeck(state, action) {
@@ -36,6 +37,9 @@ const playerSlice = createSlice({
     },
     setRoomID(state, action) {
       state.room_id = action.payload;
+    },
+    setInRoom(state, action) {
+      state.in_room = !state.in_room;
     },
   },
 });
