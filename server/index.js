@@ -15,15 +15,17 @@ const generateGame = require("./scripts/generateGame").generateGame;
 const starting_career = require("./store/player/careerStart").career_starts;
 
 app.post("/api/generateGame", (req, res) => {
+  const [game_seed, dungeon] = generateGame(req.body.seed, req.body.career_id);
   res.send({
     message: "generate game route",
-    dungeon: generateGame(req.body.seed, req.body.career_id),
+    dungeon: dungeon,
     career: starting_career[req.body.career_id],
+    seed: game_seed,
   });
 });
 
-app.get("/api/getRoom/room/:room_id/seed/:game_seed", (req, res) =>{
-  console.log(req.params)
+app.get("/api/getRoom/room/:room_id/seed/:game_seed", (req, res) => {
+  console.log(req.params);
 });
 
 module.exports = app;
