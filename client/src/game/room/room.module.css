@@ -1,0 +1,9 @@
+.container {
+  position: static;
+  height: 2000px;
+  width: 1200px;
+  border: 10px solid rgb(34, 28, 28);
+  margin-left: 300px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}

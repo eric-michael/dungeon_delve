@@ -7,6 +7,10 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
+import classes from "./room.module.css";
+
+import Combat from "./combat/combat";
+
 function Room(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [room, setRoom] = useState({});
@@ -20,6 +24,7 @@ function Room(props) {
     room_id: room_id,
   };
 
+  // rooms will be created on the server when supplied with a room_id + game_seed.
   useEffect(() => {
     fetch("api/getRoom", {
       method: "POST",
@@ -32,7 +37,7 @@ function Room(props) {
     });
   }, []);
 
-  return <div><div>{room_id}</div><button onClick={props.leaveRoomHandler}>leave room</button></div>;
+  return <div className={classes.container}><div>{room_id}</div><button onClick={props.leaveRoomHandler}>leave room</button></div>;
 }
 
 export default Room;
