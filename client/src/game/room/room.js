@@ -19,10 +19,10 @@ function Room(props) {
 
   const room_id = props.room_id;
 
-  const post_data = {
+  /* const post_data = {
     seed: game_seed,
     room_id: room_id,
-  };
+  }; */
 
   // rooms will be created on the server when supplied with a room_id + game_seed.
   useEffect(() => {
