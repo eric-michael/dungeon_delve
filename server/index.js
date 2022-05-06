@@ -22,8 +22,8 @@ app.post("/api/generateGame", (req, res) => {
   });
 });
 
-app.post("/api/getRoom", (req, res) =>{
-
+app.get("/api/getRoom/room/:room_id/seed/:game_seed", (req, res) =>{
+  console.log(req.params)
 });
 
 module.exports = app;

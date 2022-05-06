@@ -26,9 +26,9 @@ function Room(props) {
 
   // rooms will be created on the server when supplied with a room_id + game_seed.
   useEffect(() => {
-    fetch("api/getRoom", {
-      method: "POST",
-      body: JSON.stringify(post_data),
+    fetch(`api/getRoom/room/${room_id}/seed/${game_seed}`, {
+      method: "GET",
+      //body: JSON.stringify(post_data),
     }).then((res) => {
       res.json().then((data) => {
         setRoom(data);
@@ -37,7 +37,12 @@ function Room(props) {
     });
   }, []);
 
-  return <div className={classes.container}><div>{room_id}</div><button onClick={props.leaveRoomHandler}>leave room</button></div>;
+  return (
+    <div className={classes.container}>
+      <div>{room_id}</div>
+      <button onClick={props.leaveRoomHandler}>leave room</button>
+    </div>
+  );
 }
 
 export default Room;
