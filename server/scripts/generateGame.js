@@ -18,7 +18,7 @@ function generateGame(seed, career_id) {
     dungeon_number
   );
 
-  return generated_dungeon;
+  return [game_seed, generated_dungeon];
 }
 
 exports.generateGame = generateGame;

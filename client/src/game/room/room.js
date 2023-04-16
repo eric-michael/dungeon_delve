@@ -11,6 +11,8 @@ import { useSelector } from "react-redux";
 
 import CombatContainer from "./combat/combatContainer";
 
+import Combat from "./combat/combat";
+
 function Room(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [room, setRoom] = useState({});
@@ -19,15 +21,16 @@ function Room(props) {
 
   const room_id = props.room_id;
 
-  const post_data = {
+  /* const post_data = {
     seed: game_seed,
     room_id: room_id,
-  };
+  }; */
 
+  // rooms will be created on the server when supplied with a room_id + game_seed.
   useEffect(() => {
-    fetch("api/getRoom", {
-      method: "POST",
-      body: JSON.stringify(post_data),
+    fetch(`api/getRoom/room/${room_id}/seed/${game_seed}`, {
+      method: "GET",
+      //body: JSON.stringify(post_data),
     }).then((res) => {
       res.json().then((data) => {
         setRoom(data);
