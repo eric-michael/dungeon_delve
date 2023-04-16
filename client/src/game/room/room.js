@@ -4,8 +4,12 @@
     It should replace the Map Component on the Game page
 */
 
+import classes from "./room.module.css";
+
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+
+import CombatContainer from "./combat/combatContainer";
 
 function Room(props) {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,7 +36,12 @@ function Room(props) {
     });
   }, []);
 
-  return <div><div>{room_id}</div><button onClick={props.leaveRoomHandler}>leave room</button></div>;
+  return (
+    <div className={classes.container}>
+      <div>{room_id}</div>
+      <button onClick={props.leaveRoomHandler}>leave room</button>
+    </div>
+  );
 }
 
 export default Room;
