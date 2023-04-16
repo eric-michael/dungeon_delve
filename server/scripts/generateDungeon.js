@@ -10,11 +10,20 @@ const generateLevel = require("./generateLevel").generateLevel;
  */
 function generateDungeon(seed, career_id, dungeon_number) {
 
+  /*
+    rng : {
+      "seed": {hash} the game seed
+      "mapRng": {0-1 random number} random number that should be used in map rng
+      "monsterRng": {0-1 random number} random number that should be used for monster rng
+    }
+  */
   const rng = new RNG(seed);
   console.log(JSON.stringify(rng));
   const dungeon = [];
+  // sets are used to determine room connectivity. the algorithm uses joint-sets to connect rooms.
   const sets = [[1], [2], [3], [4]];
   let level_rank = 0;
+  // prev_level_rooms are used to understand how to connect the rooms, i.e., how to add a room to a set
   let prev_level_rooms = [];
 
   // 10 levels per dungeon.
