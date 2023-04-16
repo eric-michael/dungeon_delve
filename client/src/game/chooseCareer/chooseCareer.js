@@ -54,7 +54,7 @@ function Start() {
   }
 
   useEffect(() => {
-    fetch("api/careers").then((res) => {
+    fetch("api/career/getAllCareers").then((res) => {
       res.json().then((data) => {
         setCareers(data);
         setIsLoading(false);

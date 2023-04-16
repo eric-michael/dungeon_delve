@@ -4,11 +4,11 @@ const port = process.env.PORT || 3001;
 
 app.use(express.json());
 
-const routes = require("./routes");
+const career = require("./routes/career");
 
 app.listen(port, console.log(`Listening on port ${port}`));
 
-app.get("/api/careers", routes.getAllCareers);
+app.use("/api/career", career);
 
 const generateGame = require("./scripts/generateGame").generateGame;
 
