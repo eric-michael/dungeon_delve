@@ -24,16 +24,27 @@ function Game() {
   function leaveRoomHandler(e){
     dispatch(playerActions.setInRoom());
   }
-  
-  // need a conditional to switch between map view and room view
 
   const in_room = useSelector((state) => state.player.in_room);
   const room_id = useSelector((state) => state.player.room_id);
-
+  const dungeon_map = useSelector((state) => state.dungeon.dungeon_map);
+  let room_type = null;
+  // I should be able to get the room_type from the room_id from the store
+  console.log(room_id);
+  if(room_id){
+    const level_str = room_id.slice(2, 4);
+    console.log(level_str);
+    const index_from_level = parseInt(level_str) - 1;
+    console.log(index_from_level);
+    const room = dungeon_map[index_from_level].filter(room => {return room_id === room.room_id});
+    room_type = room.room_type;
+  }
+  
+  
   return (
     <div>
       <TopBar />
-      {in_room && <Room room_id={room_id} leaveRoomHandler={leaveRoomHandler}/>}
+      {in_room && <Room room_id={room_id} room_type={room_type} leaveRoomHandler={leaveRoomHandler}/>}
       {!in_room && <Map enterRoomHandler={enterRoomHandler} />}
     </div>
   );
