@@ -20,6 +20,8 @@ function Room(props) {
   const game_seed = useSelector((state) => state.game.seed);
 
   const room_id = props.room_id;
+  const room_type = props.room_type;
+  console.log(room_type);
 
   /* const post_data = {
     seed: game_seed,
@@ -33,6 +35,7 @@ function Room(props) {
     }).then((res) => {
       console.log(res)
       res.json().then((data) => {
+        console.log(data);
         setRoom(data);
         setIsLoading(false);
       });
