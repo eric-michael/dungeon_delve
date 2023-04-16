@@ -24,6 +24,7 @@ app.post("/api/generateGame", (req, res) => {
   });
 });
 
+// Maybe make this a body request instead of query params? idk yet
 app.get("/api/getRoom/:room_id/:game_seed", (req, res) =>{
   res.send({
     message: "generate room",
