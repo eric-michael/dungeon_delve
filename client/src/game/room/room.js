@@ -28,10 +28,10 @@ function Room(props) {
 
   // rooms will be created on the server when supplied with a room_id + game_seed.
   useEffect(() => {
-    fetch(`api/getRoom/room/${room_id}/seed/${game_seed}`, {
+    fetch(`api/getRoom/${room_id}/${game_seed}`, {
       method: "GET",
-      //body: JSON.stringify(post_data),
     }).then((res) => {
+      console.log(res)
       res.json().then((data) => {
         setRoom(data);
         setIsLoading(false);

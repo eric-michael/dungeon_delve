@@ -24,7 +24,7 @@ app.post("/api/generateGame", (req, res) => {
   });
 });
 
-app.post("/api/getRoom", (req, res) =>{
+app.get("/api/getRoom/:room_id/:game_seed", (req, res) =>{
   res.send({
     message: "generate room",
     room: req.body.room_id
