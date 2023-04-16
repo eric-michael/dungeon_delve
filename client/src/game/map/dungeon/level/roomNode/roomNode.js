@@ -19,6 +19,8 @@ import classes from "./roomNode.module.css";
     Build a string in the following format:
     (1,2,4)
     based on which sets the room belongs to
+
+    this needs to be replaced by some UI indication that rooms are connected, like a line
 */
 function buildStringFromSets(sets) {
   let set_string = "(";
@@ -43,7 +45,7 @@ function RoomNode(props) {
   const set_string = buildStringFromSets(sets);
   return (
     <div className={classes.inline}>
-      <button value={room_id} onClick={enterRoomHandler}>
+      <button value={room_id} data-room-type={room_name} onClick={enterRoomHandler}>
         {room_name}
         {set_string}
       </button>
