@@ -23,7 +23,10 @@ app.post("/api/generateGame", (req, res) => {
 });
 
 app.post("/api/getRoom", (req, res) =>{
-
+  res.send({
+    message: "generate room",
+    room: req.body.room_id
+  })
 });
 
 module.exports = app;
