@@ -21,7 +21,6 @@ function Room(props) {
 
   const room_id = props.room_id;
   const room_type = props.room_type;
-  console.log(room_type);
 
   /* const post_data = {
     seed: game_seed,
@@ -46,6 +45,8 @@ function Room(props) {
     <div className={classes.container}>
       <div>{room_id}</div>
       <button onClick={props.leaveRoomHandler}>leave room</button>
+      {/*Conditionally load which type of room it is based on the room_type (type_id)*/}
+      {room_type === 0 && <Combat></Combat>}
     </div>
   );
 }
