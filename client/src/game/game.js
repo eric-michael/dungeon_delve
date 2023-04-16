@@ -38,7 +38,6 @@ function Game() {
     const index_from_level = parseInt(level_str) - 1;
     console.log(index_from_level);
     const room = dungeon_map[index_from_level].filter(room => {return room_id === room.room_id});
-    console.log(room);
     room_type_id = room[0].type_id;
   }
   
