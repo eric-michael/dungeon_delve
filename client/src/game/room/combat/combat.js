@@ -1,9 +1,9 @@
-import ActionBar from "./actionBar";
-import DiscardPile from "./discardPile";
-import DrawPile from "./drawPile";
-import Enemy from "./enemy";
-import EnemyContainer from "./enemyContainer";
-import hand from "./hand";
+import ActionBar from "./combat_components/actionBar";
+import DiscardPile from "./combat_components/discardPile";
+import DrawPile from "./combat_components/drawPile";
+import Enemy from "./combat_components/enemy";
+import EnemyContainer from "./combat_components/enemyContainer";
+import hand from "./combat_components/hand";
 import player from "./player";
 
 function Combat() {
