@@ -4,7 +4,7 @@ import DrawPile from "./combat_components/drawPile";
 import Enemy from "./combat_components/enemy";
 import EnemyContainer from "./combat_components/enemyContainer";
 import hand from "./combat_components/hand";
-import player from "./player";
+import player from "./combat_components/player";
 
 function Combat() {
   return <div>Combat</div>;
